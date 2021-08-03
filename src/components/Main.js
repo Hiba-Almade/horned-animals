@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import HornedBeasts from './HornedBeasts'
 import d from './data.json'
-
+import { Col } from 'react-bootstrap'
 
 export class Main extends Component {
     constructor(props) {
@@ -15,18 +15,19 @@ export class Main extends Component {
     render() {
         return (
             <div>
-                {
-                    this.state.data.map(element => {
-                        return (
+                <Col sm={2}>
+                    {
+                        this.state.data.map(element => {
+                            return (
 
-                            <HornedBeasts imgurl={element.image_url}
-                                title={element.title}
-                                desc={element.description}
-                            />
+                                <HornedBeasts imgurl={element.image_url}
+                                    title={element.title}
+                                    desc={element.description}
+                                />
 
-                        )
-                    })}
-
+                            )
+                        })}
+                </Col>
             </div>
         )
     }
