@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import HornedBeasts from './HornedBeasts'
 import d from './data.json'
-import { Col } from 'react-bootstrap'
+import { Row } from 'react-bootstrap'
 
 export class Main extends Component {
     constructor(props) {
@@ -15,7 +15,7 @@ export class Main extends Component {
     render() {
         return (
             <div>
-                <Col sm={2}>
+                <Row xs={3} md = {4} lg = {3}>
                     {
                         this.state.data.map(element => {
                             return (
@@ -23,11 +23,12 @@ export class Main extends Component {
                                 <HornedBeasts imgurl={element.image_url}
                                     title={element.title}
                                     desc={element.description}
+                                    showModal ={this.props.showModal}
                                 />
 
                             )
                         })}
-                </Col>
+                </Row>
             </div>
         )
     }
