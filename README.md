@@ -8,3 +8,5 @@ An react application that displays images and information of horned animals. Thi
 ***Feature #3:*** Bootstrap
 
 ***Feature #4:*** Display a Modal
+
+***Feature #5:*** Filter by Numbers of Horns
