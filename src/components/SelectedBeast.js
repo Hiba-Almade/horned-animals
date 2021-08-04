@@ -1,65 +1,30 @@
 import React, { Component } from 'react';
-import data from './data.json';
-import {Modal,Button} from 'react-bootstrap/Modal';
+import { Modal, Button } from 'react-bootstrap';
 export default class SelectedBeast extends Component {
-    
-    render() {
-       
-        let titleSelected = this.props.titleToShow;
-        let hornedArr = data ;
-        const result = hornedArr.filter(item => item.title == titleSelected); 
-        
-        if(result){
-            function MyVerticallyCenteredModal(props) {
-                return (
-                  <Modal
-                    {...props}
-                    size="lg"
-                    aria-labelledby="contained-modal-title-vcenter"
-                    centered
-                  >
-                    <Modal.Header closeButton>
-                      <Modal.Title id="contained-modal-title-vcenter">
-                        Modal heading
-                      </Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>
-                      <h4>Centered Modal</h4>
-                      <p>
-                        Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-                        dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-                        consectetur ac, vestibulum at eros.
-                      </p>
-                    </Modal.Body>
-                    <Modal.Footer>
-                      <Button onClick={props.onHide}>Close</Button>
-                    </Modal.Footer>
-                  </Modal>
-                );
-              }
-              
-              function App() {
-                const [modalShow, setModalShow] = React.useState(false);
-              
-                return (
-                  <>
-                    <Button variant="primary" onClick={() => setModalShow(true)}>
-                      Launch vertically centered modal
-                    </Button>
-              
-                    <MyVerticallyCenteredModal
-                      show={modalShow}
-                      onHide={() => setModalShow(false)}
-                    />
-                  </>
-                );
-              }
-              
-              render(<App />);
-              MyVerticallyCenteredModal(props);
-              return '';
-        }
 
-  
-    }
+  render() {
+
+    return (
+      <div>
+
+        <Modal show={this.props.showingModal} onHide={this.props.closeModal}>
+          <Modal.Header closeButton>
+            <Modal.Title>{this.props.animal.title}</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+           <img src = {this.props.animal.img} alt = {this.props.animal.title} width = "400px" height= "300px"/>
+           <p>{this.props.animal.descr}</p>
+           
+           </Modal.Body>
+          <Modal.Footer>
+         
+            
+          </Modal.Footer>
+        </Modal>
+
+      </div>
+    );
+
+
+  }
 }

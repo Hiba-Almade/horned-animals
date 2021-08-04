@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import{Card, Button} from 'react-bootstrap/Card';
-import SelectedBeast from './SelectedBeast';
+import { Card, Button } from 'react-bootstrap';
+
 
 export class HornedBeasts extends Component {
     constructor(props) {
@@ -18,10 +18,6 @@ export class HornedBeasts extends Component {
         )
         // console.log(this.state.count);
     }
-    viewModal(){
-        <SelectedBeast titleToShow ={this.props.title}/>
-    }
-
     render() {
         return (
             <div>
@@ -30,10 +26,7 @@ export class HornedBeasts extends Component {
                         variant="top"
                         src={this.props.imgurl}
                         alt={this.props.title}
-                        onClick={() => {
-                            this.updateClick();
-                            this.viewModal();
-                        }}
+                        onClick={this.updateClick}
                     />
                     <Card.Body>
                         <Card.Title>{this.props.title}</Card.Title>
@@ -42,12 +35,19 @@ export class HornedBeasts extends Component {
                         </Card.Text>
                         <i class="fa fa-heart" aria-hidden="true"></i>
                         <p>💙{this.state.count} </p>
+                        <Button variant="primary" onClick={() => this.props.showModal(
+                                                                    {
+                                                                        img: this.props.imgurl,
+                                                                        title: this.props.title,
+                                                                        descr: this.props.desc
+                                                                    }
+                        )}>
+                            View More
+                        </Button>
                     </Card.Body>
                 </Card>
 
-                <Button variant="primary" onClick={() => setModalShow(true)}>
-                      Launch vertically centered modal
-                    </Button>
+
                 {/* 
                 <h2>{this.props.title}</h2>
                 <img src={this.props.imgurl} alt={this.props.title} />
