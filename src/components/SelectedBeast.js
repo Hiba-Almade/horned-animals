@@ -12,7 +12,7 @@ export default class SelectedBeast extends Component {
             <Modal.Title>{this.props.animal.title}</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-           <img src = {this.props.animal.img} alt = {this.props.animal.title} width = "400px" height= "300px"/>
+           <img src = {this.props.animal.img} alt = {this.props.animal.title} />
            <p>{this.props.animal.descr}</p>
            
            </Modal.Body>
