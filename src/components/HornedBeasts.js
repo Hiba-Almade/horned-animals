@@ -24,6 +24,7 @@ export class HornedBeasts extends Component {
                 <Card style={{ width: '18rem' }}>
                     <Card.Img
                         variant="top"
+                        class="img-fluid"
                         src={this.props.imgurl}
                         alt={this.props.title}
                         onClick={this.updateClick}
